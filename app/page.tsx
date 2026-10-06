@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 import { Bars } from "@/components/home/bars";
 import { SearchForm } from "@/components/home/search-form";
 import { CourseTile } from "@/components/cards/course-tile";
+import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/layout/navbar";
 import { courseIcons, type CourseIconKey } from "@/components/ui/course-icons";
 import { ArrowRight, Bell, Star } from "@/components/ui/icons";
@@ -50,13 +52,17 @@ const navActions = (
     <button type="button" aria-label="Notifications" className="hidden text-neutral-900 hover:text-primary-500 sm:block">
       <Bell className="size-6" />
     </button>
-    {/* Placeholder avatar until Clerk. */}
-    <span
-      aria-hidden="true"
-      className="flex size-9 shrink-0 items-center sm:size-11 justify-center rounded-full bg-primary-100 text-body font-semibold text-primary-500"
-    >
-      A
-    </span>
+    <Show when="signed-out">
+      <SignInButton mode="modal">
+        <Button variant="text" className="px-2">Sign in</Button>
+      </SignInButton>
+      <SignUpButton mode="modal">
+        <Button size="md">Sign up</Button>
+      </SignUpButton>
+    </Show>
+    <Show when="signed-in">
+      <UserButton />
+    </Show>
   </div>
 );
 
