@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { Logo } from "./logo";
 
 const links = [
@@ -6,13 +7,19 @@ const links = [
   { key: "my-learning", label: "My Learning", href: "/my-learning" },
 ] as const;
 
-export function Navbar({ active }: { active?: (typeof links)[number]["key"] }) {
+export function Navbar({
+  active,
+  actions,
+}: {
+  active?: (typeof links)[number]["key"];
+  actions?: ReactNode;
+}) {
   return (
-    <nav aria-label="Main" className="flex h-16 items-center justify-between gap-6 px-2">
+    <nav aria-label="Main" className="flex h-16 items-center justify-between gap-3 px-2 sm:gap-6">
       <Link href="/" aria-label="Vertex home">
         <Logo />
       </Link>
-      <ul className="flex items-center gap-6 sm:gap-10">
+      <ul className={`flex items-center gap-3 sm:gap-10 ${actions ? "mr-auto sm:ml-4" : ""}`}>
         {links.map((l) => (
           <li key={l.key}>
             <Link
@@ -25,6 +32,7 @@ export function Navbar({ active }: { active?: (typeof links)[number]["key"] }) {
           </li>
         ))}
       </ul>
+      {actions}
     </nav>
   );
 }

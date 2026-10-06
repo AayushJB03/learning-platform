@@ -1,19 +1,19 @@
-import type { InputHTMLAttributes } from "react";
+import type { ComponentProps } from "react";
 import { Search } from "./icons";
 
 export function SearchInput({
   hint,
   className = "",
   ...props
-}: InputHTMLAttributes<HTMLInputElement> & { hint?: string }) {
+}: ComponentProps<"input"> & { hint?: string }) {
   return (
     <div
-      className={`flex h-11 items-center gap-3 rounded-md border border-neutral-200 bg-white px-4 focus-within:border-primary-400 ${className}`}
+      className={`flex h-11 items-center gap-3 rounded-md border border-neutral-200 bg-white px-4 text-body focus-within:border-primary-400 ${className}`}
     >
       <Search className="size-5 shrink-0 text-neutral-500" />
       <input
         type="search"
-        className="min-w-0 flex-1 bg-transparent text-body outline-none placeholder:text-neutral-500"
+        className="min-w-0 flex-1 bg-transparent outline-none placeholder:text-neutral-500"
         {...props}
       />
       {hint && (

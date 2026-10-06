@@ -148,7 +148,19 @@ export const Target = (p: IconProps) => (
   </Svg>
 );
 
-export const Accessibility = (p: IconProps) => (
+export const ArrowRight = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="M5 12h14M13 6l6 6-6 6" />
+  </Svg>
+);
+
+export const Star = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.7 5.8 21l1.2-6.8-5-4.9 6.9-1z" />
+  </Svg>
+);
+
+export const Accessibility =(p: IconProps) => (
   <Svg {...p}>
     <circle cx="12" cy="4" r="2" />
     <path d="m5 8 7 1 7-1M12 9v5M9 21l3-7 3 7" />

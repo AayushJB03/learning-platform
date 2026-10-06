@@ -20,6 +20,9 @@
   --color-lesson-fg: #4b5aa8;
   --color-success: #22a06b;
 
+  /* Warm page ground used by the home reference. */
+  --color-canvas: #fbf8f5;
+
   --radius-xs: 4px;
   --radius-sm: 8px;
   --radius-md: 12px;
@@ -76,6 +79,11 @@
   font-size: 0.75rem;
   line-height: 1rem;
   font-weight: 400;
+}
+
+/* Faint diagonal hatching in the outer gutters of the home frame. */
+@utility bg-hatch {
+  background-image: repeating-linear-gradient(135deg, transparent 0 3px, rgb(15 23 42 / 0.03) 3px 4px);
 }
 
 body {
