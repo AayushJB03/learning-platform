@@ -5,7 +5,7 @@ import "./globals.css";
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
-  weight: "700",
+  weight: ["400", "700"],
 });
 
 const inter = Inter({
